@@ -40,7 +40,7 @@ class CJFileIO:
     def write(self, line):
         self.__fout.write(str(line))
 
-    def writeln(self, line):
+    def writeln(self, line = ""):
         self.__fout.write(str(line) + "\n")
 
     def close(self):
