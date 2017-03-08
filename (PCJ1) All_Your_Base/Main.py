@@ -1,7 +1,7 @@
 from Utils.CJFileIO import *
 from Methods import *
 
-fio = CJFileIO(CJSize.large)
+fio = CJFileIO()
 
 T = int(fio.read())
 
