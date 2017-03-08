@@ -3,7 +3,7 @@ from Methods import *
 
 fio = CJFileIO()
 
-T = int(fio.read())
+T = fio.readi()
 
 for t in range(T):
     num = fio.readln()

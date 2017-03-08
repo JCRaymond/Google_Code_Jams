@@ -3,11 +3,11 @@ from Methods import *
 
 fio = CJFileIO()
 
-T = int(fio.readln())
+T = fio.readi()
 
 for t in range(T):
-    R = int(fio.read())
-    C = int(fio.read())
+    R = fio.readi()
+    C = fio.readi()
 
     grid = []
     for r in range(R):
@@ -15,6 +15,6 @@ for t in range(T):
 
     numchanges = get_min_required_changes(grid)
 
-    fio.write_case(numchanges)
+    fio.write_next_case(numchanges)
 
 fio.close()

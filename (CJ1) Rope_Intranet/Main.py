@@ -3,10 +3,10 @@ from Methods import *
 
 fio = CJFileIO()
 
-t = int(fio.readln())
+t = fio.readi()
 
 for j in range(t):
-    n = int(fio.readln())
+    n = fio.readi()
 
     wires = []
     for i in range(n):
@@ -16,6 +16,6 @@ for j in range(t):
 
     ints = get_num_intersects(wires)
 
-    fio.write_case(ints)
+    fio.write_next_case(ints)
 
 fio.close()
