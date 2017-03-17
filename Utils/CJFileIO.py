@@ -19,7 +19,8 @@ class CJFileIO:
         self.__fout = open(file_out, "w")
 
         self.__buff = []
-        self.case = 1
+        self.__case = 1
+        self.__last_case_done = True
 
     def read(self):
         if len(self.__buff) == 0:
@@ -34,17 +35,21 @@ class CJFileIO:
 
     def readln(self):
         self.__buff = []
-        return self.__fin.readline()[:-1]
+        return self.__fin.readline().strip("\n")
 
     def write_next_case(self, case = ""):
-        self.__fout.write("Case #" + str(self.case) + ": " + str(case) + "\n")
-        self.case += 1
+        if not self.__last_case_done:
+            self.write("\n")
+        self.write("Case #" + str(self.__case) + ": " + str(case))
+        self.__last_case_done = False
+        self.__case += 1
 
     def write(self, line):
         self.__fout.write(str(line))
 
     def writeln(self, line = ""):
         self.__fout.write(str(line) + "\n")
+        self.__last_case_done = True
 
     def close(self):
         self.__fin.close()
