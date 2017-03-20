@@ -9,12 +9,12 @@ class CJSize(Enum):
 
 class CJFileIO:
 
-    def __init__(self, problem = "A",size = CJSize.small):
+    def __init__(self, problem = "A",size = CJSize.small, pracnum = None):
         if type(size) is not CJSize:
             raise TypeError("The parameter must be of type CJSize")
 
-        file_in = "Files/" + problem + "-" + size.value + "-practice.in"
-        file_out = "Files/" + size.value + "-out.out"
+        file_in = "Files/" + problem + "-" + size.value + "-practice" + ("" if pracnum == None else ("-" + str(pracnum))) + ".in"
+        file_out = "Files/" + size.value + "-out" + ("" if pracnum == None else ("-" + str(pracnum))) + ".out"
         self.__fin = open(file_in, "r")
         self.__fout = open(file_out, "w")
 
